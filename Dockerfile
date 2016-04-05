@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y git ssh curl --no-install-recommends &&
 RUN mkdir -p /opt/data/www/walle-web && cd /opt/data/www/walle-web \
     && git clone https://github.com/meolu/walle-web.git .
 RUN curl -sS https://getcomposer.org/installer | php \
-    && mv /opt/data/www/walle-web/composer.phar /usr/local/bin/composer
+    && mv composer.phar /usr/local/bin/composer
 RUN cd /opt/data/www/walle-web && composer install --prefer-dist --no-dev --optimize-autoloader -vvvv && ./yii walle/setup
 
 VOLUME ["/opt/data/www"]
